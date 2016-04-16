@@ -1,5 +1,7 @@
-Boilerplate Angular.js
+Boilerplate
 ===
+
+Boilerplate Angular.js + Webpack + ES6 + Makefile + Bootstrap
 
 Start
 ---
