@@ -1,4 +1,4 @@
-Boilerplate
+Angular Boilerplate
 ===
 
 Boilerplate Angular.js + Webpack + ES6 + Makefile + Bootstrap
