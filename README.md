@@ -3,8 +3,17 @@ Angular Boilerplate
 
 Boilerplate Angular.js + Webpack + ES6 + Makefile + Bootstrap
 
-Start
+Install
 ---
 
-- `make run`
-- go to http://127.0.0.1:9000
+`make install`
+
+Run
+---
+
+`make run`
+
+Build
+---
+
+`make build`

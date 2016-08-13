@@ -1,15 +1,12 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
-const root = path.resolve(__dirname);
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
-    context: `${__dirname}/src`,
     entry: {
         index: [
-            './js/main.js',
-            './css/main.scss',
+            './src/js/main.js',
+            './src/css/main.scss',
         ],
     },
     output: {
@@ -22,7 +19,7 @@ module.exports = {
             { test: /\.json$/, loader: 'json-loader' },
             { test: /\.s?css$/, loader: ExtractTextPlugin.extract('css!sass') },
             {
-                test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
+                test: /\.(png|jpg|gif|svg|woff2?|eot|otf|ttf)(\?.*)?$/,
                 loader: 'url',
                 query: {
                     limit: 10000,
@@ -31,16 +28,12 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
+                loader: 'babel',
                 exclude: /node_modules/,
-                include: root,
             },
         ],
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            d3: 'd3',
-        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: `${__dirname}/src/index.html`,
@@ -49,9 +42,8 @@ module.exports = {
         new ExtractTextPlugin('[name].css', {
             allChunks: false,
         }),
+        new NgAnnotatePlugin({
+            add: true,
+        }),
     ],
-    resolve: {
-        root: path.resolve(`${__dirname}`),
-        extensions: ['', '.js'],
-    },
 };
