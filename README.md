@@ -17,3 +17,10 @@ Build
 ---
 
 `make build`
+
+License
+---
+
+MIT
+
+**Free Software, Hell Yeah!**
